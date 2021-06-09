@@ -2,3 +2,5 @@ output/*
 !output/.gitkeep
 *.DS_Store
 *.Rhistory
+*.o 
+*.so 
