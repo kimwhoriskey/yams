@@ -7,7 +7,7 @@ library(data.table)
 library(ggplot2)
 library(yaps)
 library(TMB)
-library(tidyverse) # uffff - ugly...
+library(tidyverse) 
 library(gridExtra)
 library(mgcv)
 library(sp)

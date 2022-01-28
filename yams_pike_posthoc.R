@@ -9,7 +9,7 @@ library(data.table)
 library(ggplot2)
 library(yaps)
 library(TMB)
-library(tidyverse) # uffff - ugly...
+library(tidyverse) 
 library(gridExtra)
 library(mgcv)
 library(sp)
@@ -153,7 +153,6 @@ lapply(mods3, function(x)x$winner)
 
 sapply(mods2, function(x)x$hmm_results[[x$winner]]$params[7:8,1])
 sapply(mods3, function(x)x$hmm_results[[x$winner]]$params[13:15,1])
-# ouf, two is not super comparable
 
 
 
@@ -171,11 +170,6 @@ sapply(mods3, function(x)x$hmm_results[[x$winner]]$statdist)
 # these are the generator matrices
 lapply(mods2, function(x)-(x$hmm_results[[x$winner]]$genmat))
 lapply(mods3, function(x)-(x$hmm_results[[x$winner]]$genmat))
-
-# check that the 3x3 generators are correct
-lapply(mods3, function(x) rowSums(matrix(tail(x$hmm_results[[x$winner]]$params, 9)[,1], nrow=3)))
-# okay, rows sum to 0 with a rounding error, that's good
-
 
 # these are the diagonals
 sapply(mods2, function(x)-(diag(x$hmm_results[[x$winner]]$genmat)))
@@ -295,7 +289,7 @@ states$date <- c(dates$start[1] + states$top[1:5000],
              dates$start[5] + states$top[45001:50000])
 head(states)
 
-# claculate the distance
+# calculate the distance
 d <- do.call(c, 
              lapply(split(states, states$modid),
                     function(y)c(NA,apply(cbind(diff(y$x), diff(y$y)), 1, function(x)sqrt(sum(x^2)))))
@@ -351,7 +345,6 @@ states %>%
   geom_histogram(aes(y=stat(count) / sum(count)), 
                  fill='slategray') +
   geom_density(aes(x=v, y=15* stat(count) / sum(count), col=factor(b)),
-               position='stack',
                lwd=1) + 
   scale_color_manual(values=c(fmf[2], fmf[3], fmf[5])) + 
   facet_grid(modid~ grp) + 

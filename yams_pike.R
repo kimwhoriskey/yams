@@ -99,10 +99,10 @@ for(i in 1:length(toamats)){
   paste('finished mod', i)
 }
 saveRDS(mods, file="output/pikemodsm2ts60svhmm1.RDS")
-# mods <- readRDS("pikemodsb2ts60.RDS")
-# 
-# 
+
+
 # 2 states, hmm at log(60)
+
 
 mods <- list()
 for(i in 1:length(toamats)){
@@ -163,7 +163,6 @@ for(i in 1:length(toamats)){
   paste('finished mod', i)
 }
 saveRDS(mods, file="output/pikemodsm3ts60svhmm1.RDS")
-# mods <- readRDS("pikemodsb2ts60.RDS")
 
 
 
